@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.redhat.eventmodel.model.Fact;
 import com.redhat.eventmodel.model.Rule;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,5 +48,15 @@ public class RuleTraceEvent extends TraceEvent {
 	}
 	public void setRulesNotFired(List<Rule> rulesNotFired) {
 		this.rulesNotFired = rulesNotFired;
+	}
+
+	@Override
+	public String toString() {
+		return "RuleTraceEvent{" +
+			"type=" + type +
+			", rule=" + rule +
+			", facts=" + facts +
+			", rulesNotFired=" + rulesNotFired +
+			'}';
 	}
 }

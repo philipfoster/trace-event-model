@@ -29,4 +29,15 @@ public class ProcessTraceEvent extends TraceEvent {
     public void setProcess(Process process) {
         this.process = process;
     }
+
+    @Override
+    public String toString() {
+        return "ProcessTraceEvent{" +
+            "id=" + getID() +
+            ", timestamp=" + getTimeStamp() +
+            ", eventType=" + getEventType() +
+            ", traceEventType=" + type +
+            ", process=" + process +
+            '}';
+    }
 }

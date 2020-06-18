@@ -2,12 +2,14 @@ package com.redhat.eventmodel.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.Map;
 
-@JsonPropertyOrder({"Name", "ParentProcessID", "Node"})
+@JsonPropertyOrder({"Name", "ParentProcessID", "Node", "ProcessVariables"})
 public class Process {
 
     private String name;
     private long parentProcessID;
+    private Map<String, Object> processVariables;
     private Node node;
 
 	@JsonProperty("Name")
@@ -33,12 +35,32 @@ public class Process {
         return this.node;
     }
 
+    @JsonProperty("ProcessVariables")
+    public Map<String, Object> getProcessVariables() {
+        return processVariables;
+    }
+
+    public void setProcessVariables(Map<String, Object> processVariables) {
+        this.processVariables = processVariables;
+    }
+
     public void setNode(Node node) {
         this.node = node;
     }
 
+//    @Override
+//    public String toString() {
+//        return "Process name=" + getName() + ", parentProcessID=" + getParentProcessID() + ", node=" + getNode();
+//    }
+
+
     @Override
     public String toString() {
-        return "Process name=" + getName() + ", parentProcessID=" + getParentProcessID() + ", node=" + getNode().toString();
+        return "Process{" +
+            "name='" + name + '\'' +
+            ", parentProcessID=" + parentProcessID +
+            ", processVariables=" + processVariables +
+            ", node=" + node +
+            '}';
     }
 }
